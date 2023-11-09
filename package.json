@@ -1,0 +1,34 @@
+{
+  "name": "storm",
+  "version": "1.0.0",
+  "description": "Storm store",
+  "main": "index.js",
+  "scripts": {
+    "build": "remix build",
+    "dev": "remix dev",
+    "start": "remix-serve build",
+    "typecheck": "tsc"
+  },
+  "keywords": [],
+  "author": "Cornell Soares",
+  "license": "ISC",
+  "dependencies": {
+    "@remix-run/node": "^2.2.0",
+    "@remix-run/react": "^2.2.0",
+    "@remix-run/serve": "^2.2.0",
+    "isbot": "^3.7.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "match-sorter": "^6.3.1",
+    "sort-by": "^1.2.0",
+    "tiny-invariant": "^1.3.1"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^2.2.0",
+    "@remix-run/eslint-config": "^2",
+    "@types/react": "^18.2.20",
+    "@types/react-dom": "^18.2.7",
+    "eslint": "^8.47.0",
+    "typescript": "^5.1.6"
+  }
+}
