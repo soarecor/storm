@@ -31,7 +31,7 @@ export default function Navbar() {
       {/* Site Logo */}
       <div className="flex flex-1 justify-between items-center p-4 sm:p-8 lg:pl-0 col-span-1 lg:col-span-1">
         <Link to="/">
-          <img src={zero} className="pl-4 md:pl-0 w-[70px] md:w-[100px]" />
+          <img src={zero} className="pl-4 md:pl-0 w-[70px] md:w-[210px]" />
         </Link>
         <div className="lg:hidden">
           <button className="outline-none p-2" onClick={() => setState(!state)}>
@@ -75,7 +75,7 @@ export default function Navbar() {
         <Form id="search-form" role="search">
           <input
             id="q"
-            className="border-solid border-2 border-[#DCDFE3] p-3 mr-3 rounded-lg"
+            className="border-solid border-2 border-[#DCDFE3] p-3 mr-3 rounded-sm w-[264px] text-sm"
             aria-label="Search contacts"
             placeholder="Search"
             type="search"
@@ -84,7 +84,7 @@ export default function Navbar() {
         </Form>
         <Form method="post">
           <button
-            className="border-solid border-2 border-[#605DEC] py-3 px-4 bg-[#605DEC] rounded-lg text-[#fff]"
+            className="border-solid border-2 border-[#605DEC] py-3 px-6 bg-[#605DEC] rounded-sm text-[#fff] text-sm"
             type="submit"
           >
             Search

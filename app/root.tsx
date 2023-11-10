@@ -5,12 +5,23 @@ import {
   Meta,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
 } from "@remix-run/react";
+import { json } from "@remix-run/node";
 
 import Navbar from "~/components/navbar";
+import ProductTable from "~/components/table";
 import styles from "./tailwind.css";
+import { getProducts } from "./server";
+
+export const loader = async () => {
+  const products = await getProducts();
+  return json({ products });
+};
 
 export default function App() {
+  const { products } = useLoaderData();
+  // console.log(products);
   return (
     <html lang="en">
       <head>
@@ -21,7 +32,7 @@ export default function App() {
       </head>
       <body>
         <Navbar />
-
+        <ProductTable products={products} />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
@@ -30,10 +41,4 @@ export default function App() {
   );
 }
 
-export const links: LinksFunction = () => [
-  // {
-  //   rel: "stylesheet",
-  //   href: "https://unpkg.com/modern-css-reset@1.4.0/dist/reset.min.css",
-  // },
-  { rel: "stylesheet", href: styles },
-];
+export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
