@@ -1,7 +1,6 @@
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -11,26 +10,41 @@ import {
 export default function ProductTable({ products }) {
   console.log("proudcts", products);
   return (
-    <Table className="md:max-w-[1184px] mx-auto">
-      <TableCaption>A list of your recent invoices.</TableCaption>
-      <TableHeader>
+    <Table className="md:max-w-[1184px] mx-auto border-solid border border-[#E4E4EF] ">
+      <TableHeader className="h-16">
         <TableRow>
-          <TableHead className="w-[100px]">ID</TableHead>
-          <TableHead>Status</TableHead>
-          <TableHead>Quantity</TableHead>
-          <TableHead className="text-right">Product Name</TableHead>
-          <TableHead className="text-right">Prices</TableHead>
+          <TableHead className="text-center text-[16px] font-bold text-black">
+            ID
+          </TableHead>
+          <TableHead className="text-center text-[16px] font-bold text-black">
+            Status
+          </TableHead>
+          <TableHead className="text-center text-[16px] font-bold text-black">
+            Quantity
+          </TableHead>
+          <TableHead className="text-center text-[16px] font-bold text-black">
+            Product Name
+          </TableHead>
+          <TableHead className="text-center text-[16px] font-bold text-black border-l-2 border-[#E4E4EF]">
+            Prices
+          </TableHead>
         </TableRow>
       </TableHeader>
       {products.length ? (
         <TableBody>
           {products.map((product) => (
             <TableRow>
-              <TableCell className="font-medium">{product.id}</TableCell>
-              <TableCell>Paid</TableCell>
-              <TableCell>{product.quantity}</TableCell>
-              <TableCell className="text-right">{product.product}</TableCell>
-              <TableCell className="text-right">{product.total}</TableCell>
+              <TableCell className="text-center">{product.id}</TableCell>
+              <TableCell className="text-center">Paid</TableCell>
+              <TableCell className="text-center">{product.quantity}</TableCell>
+              <TableCell className="text-left">
+                {" "}
+                <div>{product.product}</div>
+                <div className="text-xs text-[#808080]">{product.serial}</div>
+              </TableCell>
+              <TableCell className="text-right border-l-2 border-[#E4E4EF]">
+                {product.total}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
