@@ -75,6 +75,7 @@ export default function Navbar() {
         <Form id="search-form" role="search">
           <input
             id="q"
+            className="border-solid border-2 border-[#DCDFE3] p-3 mr-3 rounded-lg"
             aria-label="Search contacts"
             placeholder="Search"
             type="search"
@@ -82,7 +83,12 @@ export default function Navbar() {
           />
         </Form>
         <Form method="post">
-          <button type="submit">Search</button>
+          <button
+            className="border-solid border-2 border-[#605DEC] py-3 px-4 bg-[#605DEC] rounded-lg text-[#fff]"
+            type="submit"
+          >
+            Search
+          </button>
         </Form>
       </div>
       <div className="flex ">
