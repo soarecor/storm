@@ -13,6 +13,7 @@
   "author": "Cornell Soares",
   "license": "ISC",
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-icons": "^1.3.0",
     "@radix-ui/react-tooltip": "^1.0.7",
     "@remix-run/node": "^2.2.0",
