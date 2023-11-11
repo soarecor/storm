@@ -1,3 +1,7 @@
+import type {
+  LoaderFunctionArgs,
+} from "@remix-run/node";
+
 import {
   Form,
   Links,
@@ -14,13 +18,15 @@ import ProductTable from "~/components/table";
 import styles from "./tailwind.css";
 import { getProducts } from "./server";
 
-export const loader = async () => {
-  const products = await getProducts();
-  return json({ products });
+export const loader = async ({ request }: LoaderFunctionArgs) => {
+  const url = new URL(request.url);
+  const q = url.searchParams.get("q");
+  const products = await getProducts(q);
+  return json({ products, q });
 };
 
 export default function App() {
-  const { products } = useLoaderData();
+  const { products, q } = useLoaderData();
   // console.log(products);
   return (
     <html lang="en">
@@ -31,7 +37,7 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Navbar />
+        <Navbar q={q} />
         <ProductTable products={products} />
         <ScrollRestoration />
         <Scripts />

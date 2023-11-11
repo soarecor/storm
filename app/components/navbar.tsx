@@ -5,6 +5,7 @@ import {
   useRouteLoaderData,
   useMatches,
   Form,
+  useSubmit,
 } from "@remix-run/react";
 import * as React from "react";
 import zero from "~/assets/Logo.png";
@@ -12,19 +13,19 @@ import gear from "~/assets/Gear.png";
 import notifs from "~/assets/Notifs.png";
 import user from "~/assets/User.png";
 
-export default function Navbar() {
+export default function Navbar({ q }) {
   const [state, setState] = React.useState(false);
 
-  const links = [
-    {
-      label: "Gear",
-      url: "/gear",
-    },
-    {
-      label: "Notifications",
-      url: "/notifications",
-    },
-  ];
+  // the search query string is stored in state
+  const [query, setQuery] = React.useState(q || "");
+  console.log(query);
+
+  // useEffect synchronizes the search query string to the search input
+  React.useEffect(() => {
+    setQuery(q || "");
+  }, [q]);
+
+  const submit = useSubmit();
 
   return (
     <nav className="flex lg:grid lg:grid-cols-4 items-center justify-between md:py-10 md:max-w-[1184px] mx-auto">
@@ -33,42 +34,6 @@ export default function Navbar() {
         <Link to="/">
           <img src={zero} className="pl-4 md:pl-0 w-[70px] md:w-[210px]" />
         </Link>
-        <div className="lg:hidden">
-          <button className="outline-none p-2" onClick={() => setState(!state)}>
-            {/* <Menu /> */}
-          </button>
-
-          {/* MENU MODAL */}
-          <div
-            className={`h-screen w-screen top-0 left-0 z-10 pb-3 overflow-hidden lg:hidden border-4 border-lime-500 ${
-              state ? "absolute" : "hidden"
-            }`}
-          >
-            <button
-              className="outline-none absolute right-2 top-2 p-2"
-              onClick={() => setState(!state)}
-            >
-              {/* <X /> */}
-            </button>
-            <div className="grid justify-center content-center items-center h-full">
-              {/* <img
-                src={zerow}
-                className="pb-7 mx-auto text-center w-[40px] md:w-[150px]"
-              /> */}
-              {links.map((link, index) => (
-                <NavLink
-                  key={index}
-                  to={link.url}
-                  className="block text-4xl py-4"
-                  onClick={() => setState(!state)}
-                >
-                  {link.label}
-                </NavLink>
-              ))}
-            </div>
-          </div>
-          {/* MENU MODAL */}
-        </div>
       </div>
       {/* Navigation Links */}
       <div className="hidden lg:flex md:pl-6 md:col-span-2 lg:col-span-2 justify-center ">
@@ -76,22 +41,25 @@ export default function Navbar() {
           <input
             id="q"
             className="border-solid border-2 border-[#DCDFE3] p-3 mr-3 rounded-sm w-[264px] text-sm"
-            aria-label="Search contacts"
+            aria-label="Search products"
             placeholder="Search"
-            type="search"
+            type="text"
+            // the regex pattern here will only allow letters, numbers and spaces
+            pattern="[a-zA-Z0-9\s]+"
             name="q"
+            defaultValue={q || ""}
+            // on hover the user is presented with this tooltip
+            title="Please enter only letters and numbers"
           />
-        </Form>
-        <Form method="post">
           <button
+            onClick={submit}
             className="border-solid border-2 border-[#605DEC] py-3 px-6 bg-[#605DEC] rounded-sm text-[#fff] text-sm"
-            type="submit"
           >
             Search
           </button>
         </Form>
       </div>
-      <div className="flex ">
+      <div className="flex justify-end">
         <img src={gear} className="" />
         <img src={notifs} className="" />
         <img src={user} className="" />

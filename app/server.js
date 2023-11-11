@@ -1,4 +1,5 @@
-export async function getProducts() {
+export async function getProducts(query) {
+  console.log("QUERRRYY", query);
   return products;
 }
 
