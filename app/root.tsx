@@ -20,7 +20,9 @@ import { getProducts } from "./server";
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const url = new URL(request.url);
+  // console.log('URRL', url)
   const q = url.searchParams.get("q");
+  // console.log('QQQ', q)
   const products = await getProducts(q);
   return json({ products, q });
 };

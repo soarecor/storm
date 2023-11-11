@@ -1,5 +1,10 @@
 export async function getProducts(query) {
-  console.log("QUERRRYY", query);
+  if (query) {
+    const filteredProducts = products.filter((product) =>
+      product.searchString.includes(query.toLowerCase())
+    );
+    return filteredProducts;
+  }
   return products;
 }
 
@@ -74,4 +79,12 @@ const products = [
     quantity: 39,
     total: 576.28,
   },
-];
+].map((product) => {
+  return {
+    // this search string will be used to filter for a substring that matches
+    // 1. the regex removes all spaces
+    // 2. toLowerCase makes all characters lower case
+    searchString: product.product.replace(/ /g, "").toLowerCase(),
+    ...product,
+  };
+});

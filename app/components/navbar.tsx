@@ -18,7 +18,6 @@ export default function Navbar({ q }) {
 
   // the search query string is stored in state
   const [query, setQuery] = React.useState(q || "");
-  console.log(query);
 
   // useEffect synchronizes the search query string to the search input
   React.useEffect(() => {

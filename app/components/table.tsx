@@ -33,7 +33,7 @@ export default function ProductTable({ products }) {
       {products.length ? (
         <TableBody>
           {products.map((product) => (
-            <TableRow>
+            <TableRow key={product.id}>
               <TableCell className="text-center">{product.id}</TableCell>
               <TableCell className="text-center">Paid</TableCell>
               <TableCell className="text-center">{product.quantity}</TableCell>
