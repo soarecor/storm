@@ -7,12 +7,16 @@ import {
   TableRow,
 } from "./ui/table";
 import ProductDialog from "./product-dialog";
+import SearchForm from "./search-form";
 
-export default function ProductTable({ products }) {
+export default function MobileTable({ products, q }) {
   return (
-    <section className="mx-auto block lg:hidden">
+    <section className="mx-4 block lg:hidden">
+      <div className="mb-4 mt-1">
+        <SearchForm q={q} />
+      </div>
       <div className="mb-2">
-        <h3 className="inline-block font-semibold">Products</h3>
+        <h3 className="inline-block font-semibold mb-2">Products</h3>
         <span className="ml-4 text-xs text-[#808080]">10 of 64 results</span>
       </div>
       <Table className="border-solid border border-[#E4E4EF] ">
@@ -29,7 +33,14 @@ export default function ProductTable({ products }) {
               <TableRow key={product.id}>
                 <TableCell className="text-left">
                   <ProductDialog productName={product.product} />
-                  <div className="text-xs text-[#808080]">{product.serial}</div>
+                  <div className="">
+                    <span className="text-xs text-[#808080]">
+                      {product.serial}
+                    </span>
+                    <span className="ml-2 text-xs text-[#808080]">
+                      Qty: {product.quantity}
+                    </span>
+                  </div>
                 </TableCell>
               </TableRow>
             ))}

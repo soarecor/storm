@@ -15,7 +15,7 @@ import { json } from "@remix-run/node";
 
 import Navbar from "~/components/navbar";
 import ProductTable from "~/components/table";
-import MobileTable from "~/components/mobile-table";
+import MobileLayout from "~/components/mobile-layout";
 import styles from "./tailwind.css";
 import { getProducts } from "./server";
 
@@ -42,7 +42,7 @@ export default function App() {
       <body>
         <Navbar q={q} />
         <ProductTable products={products}/>
-        <MobileTable products={products}/>
+        <MobileLayout products={products} q={q}/>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
