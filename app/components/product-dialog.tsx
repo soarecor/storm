@@ -1,7 +1,9 @@
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -14,17 +16,17 @@ export default function ProductDialog({ productName }) {
       <DialogTrigger>
         <div>{productName}</div>
       </DialogTrigger>
-      <DialogContent className="w-[684px] max-w-[684px] h-[616px]">
+      <DialogContent className="w-full overflow-y-auto lg:w-[684px] lg:max-w-[684px] lg:h-[616px]">
         <DialogHeader>
           <DialogTitle className="mt-2 ml-2 font-bold text-xl">
             {productName}
           </DialogTitle>
-          <DialogDescription className="h-full grid grid-cols-1 lg:grid-cols-2 lg:gap-6 items-center text-[black]">
+          <DialogDescription className="grid grid-cols-1 lg:grid-cols-2 lg:gap-6 items-center text-[black] lg:h-full">
             <img
               src={mac}
-              className="w-[314px] max-w-[314px] place-self-start mt-9"
+              className="w-[314px] max-w-[314px] place-self-start justify-self-center lg:mt-9"
             />
-            <div className="">
+            <div className="text-left">
               <div className="font-semibold mb-3">Key Features</div>
               <ul className="mb-2 leading-loose">
                 <li className="ml-1">
@@ -54,6 +56,13 @@ export default function ProductDialog({ productName }) {
             </div>
           </DialogDescription>
         </DialogHeader>
+        <DialogFooter className="justify-end mt-4 lg:mt-0 lg:mr-4">
+          <DialogClose asChild>
+            <button type="button" variant="secondary">
+              Close
+            </button>
+          </DialogClose>
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   );
