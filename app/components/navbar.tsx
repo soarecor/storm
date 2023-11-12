@@ -28,7 +28,7 @@ export default function Navbar({ q }) {
   const submit = useSubmit();
 
   return (
-    <nav className="flex lg:grid lg:grid-cols-4 items-center justify-between md:py-10 md:max-w-[1184px] mx-auto">
+    <nav className="flex lg:grid lg:grid-cols-4 items-center justify-between lg:py-10 lg:max-w-[1184px] mx-auto">
       {/* Site Logo */}
       <div className="flex flex-1 justify-between items-center p-4 sm:p-8 lg:pl-0 col-span-1 lg:col-span-1">
         <Link to="/">
@@ -36,7 +36,7 @@ export default function Navbar({ q }) {
         </Link>
       </div>
       {/* Navigation Links */}
-      <div className="hidden lg:flex md:pl-6 md:col-span-2 lg:col-span-2 justify-center ">
+      <div className="hidden lg:flex lg:pl-6 lg:col-span-2 lg:col-span-2 justify-center ">
         <Form id="search-form" role="search">
           <input
             id="q"
@@ -59,12 +59,12 @@ export default function Navbar({ q }) {
           </button>
         </Form>
       </div>
-      <div className="md:flex justify-end hidden">
+      <div className="lg:flex justify-end hidden">
         <img src={gear} className="" />
         <img src={notifs} className="" />
         <img src={user} className="" />
       </div>
-      <div className="md:hidden justify-end flex pr-4">
+      <div className="lg:hidden justify-end flex pr-4">
         <img src={menu} className="" />
       </div>
     </nav>

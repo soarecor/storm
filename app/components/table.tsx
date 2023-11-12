@@ -6,14 +6,11 @@ import {
   TableHeader,
   TableRow,
 } from "./ui/table";
-
-import mac from "~/assets/tech1.png";
-
 import ProductDialog from "./product-dialog";
 
 export default function ProductTable({ products }) {
   return (
-    <section className="md:max-w-[1184px] mx-auto hidden md:block">
+    <section className="max-w-[1184px] mx-auto hidden lg:block">
       <div className="mb-2">
         <h3 className="inline-block font-semibold">Products</h3>
         <span className="ml-4 text-xs text-[#808080]">10 of 64 results</span>

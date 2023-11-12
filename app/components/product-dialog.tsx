@@ -19,7 +19,7 @@ export default function ProductDialog({ productName }) {
           <DialogTitle className="mt-2 ml-2 font-bold text-xl">
             {productName}
           </DialogTitle>
-          <DialogDescription className="h-full grid grid-cols-1 md:grid-cols-2 md:gap-6 items-center text-[black]">
+          <DialogDescription className="h-full grid grid-cols-1 lg:grid-cols-2 lg:gap-6 items-center text-[black]">
             <img
               src={mac}
               className="w-[314px] max-w-[314px] place-self-start mt-9"
