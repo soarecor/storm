@@ -40,7 +40,7 @@ export default function App() {
       </head>
       <body>
         <Navbar q={q} />
-        <ProductTable products={products} />
+        <ProductTable products={products} className="hidden md:block" />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

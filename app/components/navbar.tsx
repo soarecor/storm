@@ -8,10 +8,11 @@ import {
   useSubmit,
 } from "@remix-run/react";
 import * as React from "react";
-import zero from "~/assets/Logo.png";
+import logo from "~/assets/Logo.png";
 import gear from "~/assets/Gear.png";
 import notifs from "~/assets/Notifs.png";
 import user from "~/assets/User.png";
+import menu from "~/assets/menu.png";
 
 export default function Navbar({ q }) {
   const [state, setState] = React.useState(false);
@@ -31,7 +32,7 @@ export default function Navbar({ q }) {
       {/* Site Logo */}
       <div className="flex flex-1 justify-between items-center p-4 sm:p-8 lg:pl-0 col-span-1 lg:col-span-1">
         <Link to="/">
-          <img src={zero} className="pl-4 md:pl-0 w-[70px] md:w-[210px]" />
+          <img src={logo} className="w-[210px]" />
         </Link>
       </div>
       {/* Navigation Links */}
@@ -58,10 +59,13 @@ export default function Navbar({ q }) {
           </button>
         </Form>
       </div>
-      <div className="flex justify-end">
+      <div className="md:flex justify-end hidden">
         <img src={gear} className="" />
         <img src={notifs} className="" />
         <img src={user} className="" />
+      </div>
+      <div className="md:hidden justify-end flex pr-4">
+        <img src={menu} className="" />
       </div>
     </nav>
   );
