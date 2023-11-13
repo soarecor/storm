@@ -9,6 +9,7 @@ import {
 import ProductDialog from "./product-dialog";
 import * as React from "react";
 import { ChevronDownIcon, ChevronUpIcon } from "@radix-ui/react-icons";
+import { Badge } from "./ui/badge";
 
 export default function ProductTable({ products }) {
   const [sortConfig, setSortConfig] = React.useState({
@@ -32,6 +33,12 @@ export default function ProductTable({ products }) {
     }
     return 0;
   });
+
+  const badgeColour = (status) => {
+    if (status === "brand new") return "bg-[#EBF6EB] text-[#31AA27]";
+    else if (status === "out of stock") return "bg-[#FFF0F0] text-[#F93232]";
+    else return "bg-[#E4E4EF] text-[#605DEC]";
+  };
 
   return (
     <section className="max-w-[1184px] mx-auto px-4 hidden lg:block">
@@ -74,7 +81,13 @@ export default function ProductTable({ products }) {
             {sortedProducts.map((product) => (
               <TableRow key={product.id}>
                 <TableCell className="text-center">{product.id}</TableCell>
-                <TableCell className="text-center">Paid</TableCell>
+                <TableCell className="text-center">
+                  <Badge
+                    className={`${badgeColour(product.status)} font-light`}
+                  >
+                    {product.status}
+                  </Badge>
+                </TableCell>
                 <TableCell className="text-center">
                   {product.quantity}
                 </TableCell>

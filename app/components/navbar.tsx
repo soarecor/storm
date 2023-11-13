@@ -31,7 +31,10 @@ export default function Navbar({ q }) {
       <div className="lg:flex justify-end hidden">
         <img src={gear} className="" />
         <img src={notifs} className="" />
-        <img src={user} className="" />
+        <span className="flex items-center">
+          <img src={user} className="" />
+          <span className="text-[#605DEC]">Adriana Arias</span>
+        </span>
       </div>
       <div className="lg:hidden justify-end flex pr-4">
         <img src={menu} className="" />
