@@ -34,7 +34,7 @@ export default function ProductTable({ products }) {
   });
 
   return (
-    <section className="max-w-[1184px] mx-auto hidden lg:block">
+    <section className="max-w-[1184px] mx-auto px-4 hidden lg:block">
       <div className="mb-2">
         <h3 className="inline-block font-semibold">Products</h3>
         <span className="ml-4 text-xs text-[#808080]">10 of 64 results</span>
@@ -58,7 +58,7 @@ export default function ProductTable({ products }) {
               onClick={() => handleSort()}
               className="border-l-2 border-[#E4E4EF] w-[171px]"
             >
-              <div className="grid grid-cols-3 items-center text-center text-[16px] font-bold text-black">
+              <div className="grid grid-cols-3 items-center text-[16px] font-bold text-black">
                 <span className="col-span-2 justify-self-end"> Prices</span>
                 {sortConfig.direction === "asc" ? (
                   <ChevronDownIcon className="justify-self-end" />

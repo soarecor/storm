@@ -15,12 +15,12 @@ export default function SearchForm({ q }) {
   return (
     <Form
       id="search-form"
-      className="flex justify-between relative"
+      className="flex justify-between sm:justify-start lg:justify-between relative"
       role="search"
     >
       <input
         id="q"
-        className="border-solid border-2 border-[#DCDFE3] p-3 mr-3 rounded-sm w-[220px] lg:w-[264px] text-sm"
+        className="border-solid border-2 border-[#DCDFE3] p-3 mr-3 rounded-sm w-[60vw] lg:w-[264px] text-sm"
         aria-label="Search products"
         placeholder="&#x1F50D; Search"
         type="text"

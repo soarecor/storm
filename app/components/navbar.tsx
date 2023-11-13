@@ -17,9 +17,9 @@ import SearchForm from "./search-form";
 
 export default function Navbar({ q }) {
   return (
-    <nav className="flex lg:grid lg:grid-cols-4 items-center justify-between lg:py-10 lg:max-w-[1184px] mx-auto mt-4 lg:mt-0">
+    <nav className="flex lg:grid lg:grid-cols-4 items-center justify-between lg:py-10 lg:max-w-[1184px] mx-auto px-4 mt-4 lg:mt-0">
       {/* Site Logo */}
-      <div className="flex flex-1 justify-between items-center p-4 sm:p-8 lg:pl-0 col-span-1 lg:col-span-1">
+      <div className="flex flex-1 justify-between items-center py-4 sm:py-8 lg:pl-0 col-span-1 lg:col-span-1">
         <Link to="/">
           <img src={logo} className="w-[210px]" />
         </Link>
