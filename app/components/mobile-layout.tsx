@@ -47,8 +47,10 @@ export default function MobileTable({ products, q }) {
           </TableBody>
         ) : (
           <TableBody>
-            <TableRow className="text-center">
-              <i>No Products exist for this search criteria</i>
+            <TableRow>
+              <div className="text-center mx-auto my-4 italic text-l">
+                No Products exist for this search criteria
+              </div>
             </TableRow>
           </TableBody>
         )}
