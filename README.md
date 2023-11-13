@@ -22,8 +22,8 @@ This starts your app in development mode.
 
 ## Additional Notes
 
-This app is built with Remix which is full stack web framework that uses web standards to deliver snappy user experiences. The main and only route lives in root.tsx.
-The GET request to fetch products lives inside the `loader` function which makes the calls to the server. The API is handled in server.js.
+This app is built with Remix which is full stack web framework that uses web standards to deliver snappy user experiences. The main and only route lives in `app/root.tsx`.
+The GET request to fetch products lives inside the `loader` function which makes the calls to the server. The API is handled in `app/server.js`.
 
 Also,
 
