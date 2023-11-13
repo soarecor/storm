@@ -7,8 +7,32 @@ import {
   TableRow,
 } from "./ui/table";
 import ProductDialog from "./product-dialog";
+import * as React from "react";
+import { ChevronDownIcon, ChevronUpIcon } from "@radix-ui/react-icons";
 
 export default function ProductTable({ products }) {
+  const [sortConfig, setSortConfig] = React.useState({
+    direction: "asc",
+  });
+
+  const handleSort = () => {
+    let direction = "asc";
+    if (sortConfig.direction === "asc") {
+      direction = "desc";
+    }
+    setSortConfig({ direction });
+  };
+
+  const sortedProducts = [...products].sort((a, b) => {
+    if (a.total < b.total) {
+      return sortConfig.direction === "asc" ? -1 : 1;
+    }
+    if (a.total > b.total) {
+      return sortConfig.direction === "asc" ? 1 : -1;
+    }
+    return 0;
+  });
+
   return (
     <section className="max-w-[1184px] mx-auto hidden lg:block">
       <div className="mb-2">
@@ -30,14 +54,24 @@ export default function ProductTable({ products }) {
             <TableHead className="text-center text-[16px] font-bold text-black">
               Product Name
             </TableHead>
-            <TableHead className="text-center text-[16px] font-bold text-black border-l-2 border-[#E4E4EF]">
-              Prices
+            <TableHead
+              onClick={() => handleSort()}
+              className="border-l-2 border-[#E4E4EF] w-[171px]"
+            >
+              <div className="grid grid-cols-3 items-center text-center text-[16px] font-bold text-black">
+                <span className="col-span-2 justify-self-end"> Prices</span>
+                {sortConfig.direction === "asc" ? (
+                  <ChevronDownIcon className="justify-self-end" />
+                ) : (
+                  <ChevronUpIcon className="justify-self-end" />
+                )}
+              </div>
             </TableHead>
           </TableRow>
         </TableHeader>
-        {products.length ? (
+        {sortedProducts.length ? (
           <TableBody>
-            {products.map((product) => (
+            {sortedProducts.map((product) => (
               <TableRow key={product.id}>
                 <TableCell className="text-center">{product.id}</TableCell>
                 <TableCell className="text-center">Paid</TableCell>

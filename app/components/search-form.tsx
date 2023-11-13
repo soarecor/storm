@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Form, useSubmit } from "@remix-run/react";
+import search from "~/assets/search.png";
 
 export default function SearchForm({ q }) {
   // the search query string is stored in state
@@ -12,12 +13,16 @@ export default function SearchForm({ q }) {
   const submit = useSubmit();
 
   return (
-    <Form id="search-form" className="flex justify-between" role="search">
+    <Form
+      id="search-form"
+      className="flex justify-between relative"
+      role="search"
+    >
       <input
         id="q"
         className="border-solid border-2 border-[#DCDFE3] p-3 mr-3 rounded-sm w-[220px] lg:w-[264px] text-sm"
         aria-label="Search products"
-        placeholder="Search"
+        placeholder="&#x1F50D; Search"
         type="text"
         // the regex pattern here will only allow letters, numbers and spaces
         pattern="[a-zA-Z0-9\s]+"
