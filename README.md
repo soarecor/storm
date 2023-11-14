@@ -1,12 +1,16 @@
 # Storm
 
+## Requirements
+
+Node v18 or above
+
 ## Development
 
 Steps to run the application locally from your terminal:
 
 1. Clone the repository
 
-2. Install dependencies
+2. Install dependencies in the root directory of the local project
 
 ```sh
 npm install
@@ -19,6 +23,10 @@ npm run dev
 ```
 
 This starts your app in development mode.
+
+## Troubleshooting
+
+The app requires Node v18 or above to run successfully. If there are any issues with dependencies due to an older version of Node during install, it is recommended to remove the node modules folder and run `npm install` again in the root directory for a clean install.
 
 ## Additional Notes
 
